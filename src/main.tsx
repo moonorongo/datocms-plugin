@@ -92,8 +92,7 @@ connect({
 
   // this render Model JSON Configuration 
   // @ts-ignore
-  renderManualFieldExtensionConfigScreen(
-    fieldExtensionId: string,
+  renderManualFieldExtensionConfigScreen(fieldExtensionId: string,
     ctx: RenderManualFieldExtensionConfigScreenCtx,
   ) {
     ReactDOM.render(

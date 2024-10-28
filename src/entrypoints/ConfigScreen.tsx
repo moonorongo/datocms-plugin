@@ -1,5 +1,5 @@
 import type { RenderConfigScreenCtx } from 'datocms-plugin-sdk';
-import { Canvas, ContextInspector, Form, TextareaField, FieldGroup, Button } from 'datocms-react-ui';
+import { Canvas, ContextInspector, Form, FieldGroup, Button } from 'datocms-react-ui';
 import s from './styles.module.css';
 
 type FreshInstallationParameters = {};
