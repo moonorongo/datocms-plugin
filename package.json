@@ -1,16 +1,16 @@
 {
-  "name": "datocms-plugin-<INSERT-YOUR-PACKAGE-NAME-HERE>",
-  "description": "<INSERT-YOUR-PLUGIN-DESCRIPTION-HERE>",
-  "homepage": "https://github.com/<USER>/<REPO>",
+  "name": "datocms-plugin-ingamana-preview",
+  "description": "Preview Plugin for DatoCMS",
+  "homepage": "https://github.com/moonorongo/datocms-plugin",
   "private": false,
   "version": "0.1.0",
-  "author": "<YOUR-NAME> <<YOUR-EMAIL>>",
+  "author": "Mauro Cifuentes <mauro.cifuentes@ingamana.com>",
   "type": "module",
   "keywords": [
     "datocms-plugin"
   ],
   "datoCmsPlugin": {
-    "title": "My First Plugin",
+    "title": "Ingamana Preview",
     "coverImage": "docs/cover-1200x800.png",
     "previewImage": "docs/preview.mp4",
     "entryPoint": "dist/index.html",

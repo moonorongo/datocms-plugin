@@ -1,4 +1,4 @@
-import { connect, RenderManualFieldExtensionConfigScreenCtx, RenderFieldExtensionCtx } from "datocms-plugin-sdk";
+import { connect, RenderManualFieldExtensionConfigScreenCtx } from "datocms-plugin-sdk";
 import "datocms-react-ui/styles.css";
 import ConfigScreen from "./entrypoints/ConfigScreen";
 // @ts-ignore
@@ -18,7 +18,7 @@ connect({
 	},
 
   // render Preview JSON field (hide all)
-  renderFieldExtension(fieldExtensionId: string, ctx: RenderFieldExtensionCtx) {
+  renderFieldExtension(fieldExtensionId: string) {
     if(fieldExtensionId === 'ingamanaPreview') {
       return false;
     }
@@ -53,6 +53,7 @@ connect({
   },
 
   // this render sidebar contents for "Ingamana Preview" panel
+  // @ts-ignore
   renderItemFormSidebarPanel(sidebarPaneId, ctx) {
     let localSettings = false
     const itemId = ctx.itemType.id
@@ -90,6 +91,7 @@ connect({
   },
 
   // this render Model JSON Configuration 
+  // @ts-ignore
   renderManualFieldExtensionConfigScreen(
     fieldExtensionId: string,
     ctx: RenderManualFieldExtensionConfigScreenCtx,
