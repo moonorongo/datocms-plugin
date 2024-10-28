@@ -54,13 +54,13 @@
 
   **Una configuracion mas compleja podria necesitar la propiedad "queries":**
 
-    Si tenemos un caso en el que la url depende de una categoria (que especificamos con un field del tipo Single Link), entonces podemos agregar una propiedad "queries" en la que especificamos:
+  Si tenemos un caso en el que la url depende de una categoria (que especificamos con un field del tipo Single Link), entonces podemos agregar una propiedad "queries" en la que especificamos:
     
-      - fieldId: el field id del selector de categorias
-      - query: la query en graphql, que nos trae todos los modelos que tendra el selector de categorias (mas adelante detallamos)
-      - token: el token que utilizaremos para reemplazar en la url el valor seleccionado por el usuario
+  - fieldId: el field id del selector de categorias
+  - query: la query en graphql, que nos trae todos los modelos que tendra el selector de categorias (mas adelante detallamos)
+  - token: el token que utilizaremos para reemplazar en la url el valor seleccionado por el usuario
 
-    entonces, si tenemos en el Model un field del tipo Single Link que enlaza a otro Model de nombre "Test Category", y tiene un field id "test_category", entonces podemos configurarlo de la siguiente manera:
+  entonces, si tenemos en el Model un field del tipo Single Link que enlaza a otro Model de nombre "Test Category", y tiene un field id "test_category", entonces podemos configurarlo de la siguiente manera:
 
 ```
       { 
@@ -81,4 +81,4 @@
         }
       }
 ```
-    con esta configuracion queda expuesto en %CATEGORY% el slug de la "Test Category" que hayamos elegido en el field "test_category"
+  con esta configuracion queda expuesto en %CATEGORY% el slug de la "Test Category" que hayamos elegido en el field "test_category"
