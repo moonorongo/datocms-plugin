@@ -14,7 +14,7 @@ export default function SidebarMetrics({ ctx, localSettings }) {
     let output = localSettings.preview.link
 
     output = output.replace('%GLOBAL_PREVIEW_BASE_URL%', globalConfig.GLOBAL_PREVIEW_BASE_URL)
-    output = output.replace(localSettings.queries[0].token, filteredCategories?.slug)
+    filteredCategories && (output = output.replace(localSettings.queries[0].token, filteredCategories?.slug))
     output = output.replace('%slug%', ctx.formValues.slug)
     output = output.replace('%GLOBAL_PREVIEW_SECRET%', globalConfig.GLOBAL_PREVIEW_SECRET)
 
@@ -26,7 +26,7 @@ export default function SidebarMetrics({ ctx, localSettings }) {
     let output = localSettings.live.link
 
     output = output.replace('%GLOBAL_LIVE_BASE_URL%', globalConfig.GLOBAL_LIVE_BASE_URL)
-    output = output.replace(localSettings.queries[0].token, filteredCategories?.slug)
+    filteredCategories && (output = output.replace(localSettings.queries[0].token, filteredCategories?.slug))
     output = output.replace('%slug%', ctx.formValues.slug)
     output = output.replace('%GLOBAL_PREVIEW_SECRET%', globalConfig.GLOBAL_PREVIEW_SECRET)
 
@@ -50,7 +50,7 @@ export default function SidebarMetrics({ ctx, localSettings }) {
       setLiveUrl(buildLiveUrl(filteredCategories))
     }
 
-    if(localSettings.queries[0].query) {
+    if(localSettings?.queries) {
       fetchData(); 
     }
   }, [])
@@ -59,17 +59,17 @@ export default function SidebarMetrics({ ctx, localSettings }) {
   useEffect(() => {
     const filteredCategories = allCategories.find(({id}) => id === ctx.formValues[localSettings.queries[0].fieldId])
    
-    // build preview url
+    // build urls
     setPreviewUrl(buildPreviewUrl(filteredCategories))
-  }, [ctx.formValues[localSettings.queries[0].fieldId], ctx.formValues.slug])
+    setLiveUrl(buildLiveUrl(filteredCategories))
+  }, [
+    localSettings?.queries? ctx.formValues[localSettings.queries[0].fieldId] : null,
+    ctx.formValues.slug
+  ])
 
 
 
   return <Canvas ctx={ctx}>
-    preview url: {previewUrl} 
-    <br />
-    <br />
-
     <Button buttonType="primary">
       <a 
         href={previewUrl} 
