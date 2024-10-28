@@ -25,6 +25,7 @@ connect({
   },
   renderItemFormSidebarPanel(sidebarPaneId, ctx) {
     let localSettings = false
+    let field = {}
     
     Object.keys(ctx.fields).forEach(key => {
       const element = ctx.fields[key]
@@ -32,11 +33,20 @@ connect({
       if(element?.attributes?.field_type === 'json') {
         if(element?.attributes?.appearance?.field_extension === 'ingamanaPreview') {
           localSettings = JSON.parse(element?.attributes?.appearance?.parameters?.localSettings as string)
+          field = element
         }
       }
     });
 
-    if(localSettings) {
+    // @ts-ignore
+    const previewFieldId = field?.id
+    const hasPreviewPlugin = !!ctx.itemType
+      .relationships
+      .fields
+      .data
+      .find((item) => { return item.id === previewFieldId})
+
+    if(hasPreviewPlugin) {
       render(<SidebarMetrics2 ctx={ctx} localSettings={localSettings} />);
     } else {
       render(<></>)

@@ -9,6 +9,7 @@ export default function SidebarMetrics({ ctx, localSettings }) {
   const [liveUrl, setLiveUrl] = useState('')
   const globalConfig = JSON.parse(ctx.plugin.attributes.parameters.globalConfig)
   
+  // PREVIEW
   const buildPreviewUrl = useCallback((filteredCategories) => {
     let output = localSettings.preview.link
 
@@ -20,6 +21,7 @@ export default function SidebarMetrics({ ctx, localSettings }) {
     return output
   })
 
+  // LIVE
   const buildLiveUrl = useCallback((filteredCategories) => {
     let output = localSettings.live.link
 
@@ -43,8 +45,9 @@ export default function SidebarMetrics({ ctx, localSettings }) {
       
       setAllCategories(items)
 
-      // build preview url
+      // build urls
       setPreviewUrl(buildPreviewUrl(filteredCategories))
+      setLiveUrl(buildLiveUrl(filteredCategories))
     }
 
     if(localSettings.queries[0].query) {
@@ -77,15 +80,15 @@ export default function SidebarMetrics({ ctx, localSettings }) {
     </Button>
 
     <br />
-    {/* <br />
+    <br />
     <Button buttonType="primary">
       <a 
-        href={`http://localhost:3000/real-estate/${category}/${ctx.formValues.slug}?preview=true`} 
+        href={liveUrl} 
         target='_blank'
         className={s.link}>
           {globalConfig.GLOBAL_LIVE_TEXT}
       </a>
-    </Button> */}
+    </Button>
 
   </Canvas>;
 }
