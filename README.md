@@ -36,7 +36,7 @@
   Para tener la opcion de Preview en un Model especifico hay que agregar un field del tipo "JSON", especificarle un Title y Field Id, y en el tab "Presentation" seleccionar en Field Editor la opcion "Ingamana Preview".
   Esto nos desplegara una caja de texto para poder configurar las opciones disponibles para el Model
 
-  Una configuracion basica puede ser la siguiente
+  **Una configuracion basica puede ser la siguiente**
 ```
     { 
       "preview": {
@@ -48,10 +48,11 @@
       }
     }
 ```
-    aqui *%GLOBAL_PREVIEW_BASE_URL%*, *%GLOBAL_LIVE_BASE_URL%* y *%GLOBAL_PREVIEW_SECRET%* los toma de la configuracion general, en tanto que *%slug%* lo toma del field "slug" que tenemos que tener definido en el Model
+
+  aqui *%GLOBAL_PREVIEW_BASE_URL%*, *%GLOBAL_LIVE_BASE_URL%* y *%GLOBAL_PREVIEW_SECRET%* los toma de la configuracion general, en tanto que *%slug%* lo toma del field "slug" que tenemos que tener definido en el Model
 
 
-  Una configuracion mas compleja podria necesitar la propiedad "queries":
+  **Una configuracion mas compleja podria necesitar la propiedad "queries":**
 
     Si tenemos un caso en el que la url depende de una categoria (que especificamos con un field del tipo Single Link), entonces podemos agregar una propiedad "queries" en la que especificamos:
     
